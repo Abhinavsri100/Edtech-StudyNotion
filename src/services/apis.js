@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4300/api/v1"
+const BASE_URL = "https://edtech-studynotion-tu9u.onrender.com/api/v1"
 
 // AUTH ENDPOINTS
 console.log("baseurl------>", BASE_URL)
