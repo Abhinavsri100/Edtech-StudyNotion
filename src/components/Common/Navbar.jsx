@@ -91,9 +91,10 @@ function Navbar() {
                           <p className="text-center">Loading...</p>
                         ) : subLinks?.length ? (
                           <>
+                          {console.log(subLinks)}
                             {subLinks
                               ?.filter(
-                                (subLink) => subLink?.courses?.length > 0
+                                (subLink) => Object.keys(subLink)?.length > 0
                               )
                               ?.map((subLink, i) => (
                                 <Link
