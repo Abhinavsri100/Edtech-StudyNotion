@@ -35,11 +35,12 @@ export async function BuyCourse(
   navigate,
   dispatch
 ) {
+  console.log(token, courses, user_details, navigate)
   const toastId = toast.loading("Loading...")
   try {
     // Loading the script of Razorpay SDK
     const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
-
+    console.log("-------->", res)
     if (!res) {
       toast.error(
         "Razorpay SDK failed to load. Check your Internet Connection."
@@ -48,6 +49,7 @@ export async function BuyCourse(
     }
 
     // Initiating the Order in Backend
+    console.log("---->", COURSE_PAYMENT_API)
     const orderResponse = await apiConnector(
       "POST",
       COURSE_PAYMENT_API,
@@ -58,7 +60,7 @@ export async function BuyCourse(
         Authorization: `Bearer ${token}`,
       }
     )
-
+    console.log("--------->", orderResponse)
     if (!orderResponse.data.success) {
       throw new Error(orderResponse.data.message)
     }
